@@ -1,8 +1,10 @@
 import logoImg from './assets/investment-calculator-logo.png';
 import { formatter } from './util/investment.js'
 import CustomUserInput from "./components/CustomUserInput.jsx";
+import { useState } from 'react';
 
 function App() {
+    const [data, setData] = useState({initialInvestment: 10000, annualInvestment: 300, expectedReturn: 7, duration: 12})
   return (
       <main>
       <div id='header'>

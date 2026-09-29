@@ -1,8 +1,8 @@
-export  default function ({labelText}){
+export  default function ({labelText, data}){
     return(
         <>
         <label>{labelText}</label>
-        <input />
+        <input defaultValue={} />
             </>
     )
 }
