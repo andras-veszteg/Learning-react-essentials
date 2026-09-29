@@ -1,5 +1,6 @@
 import logoImg from './assets/investment-calculator-logo.png';
 import { formatter } from './util/investment.js'
+import CustomUserInput from "./components/CustomUserInput.jsx";
 
 function App() {
   return (
@@ -8,7 +9,17 @@ function App() {
         <img src={logoImg} alt="Logo" />
         <h1>React Investment Calculator</h1>    
       </div>
-      <div>USER INPUT</div>
+          <div id='user-input' >
+      <div className='input-group'>
+          
+          <CustomUserInput labelText="Initial Investment" />
+          <CustomUserInput labelText="Annual Investment" />
+      </div>
+              <div className='input-group'>
+              <CustomUserInput labelText="Expected return" />
+          <CustomUserInput labelText="Duration" />
+              </div>
+          </div>
     <table id='result'>
         <thead>
           <tr>
