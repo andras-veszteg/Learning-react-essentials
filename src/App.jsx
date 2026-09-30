@@ -5,6 +5,19 @@ import { useState } from 'react';
 
 function App() {
     const [data, setData] = useState({initialInvestment: 10000, annualInvestment: 300, expectedReturn: 7, duration: 12})
+    const [dataTable, setDataTable] = useState([])
+    
+    function handleUserInput(inputName, inputValue) {
+        setData(prevData => {
+            console.log(inputName, inputValue);
+            return {
+                ...prevData,
+                [inputName]: inputValue
+            }
+            
+        })
+    }
+    
   return (
       <main>
       <div id='header'>
@@ -14,12 +27,12 @@ function App() {
           <div id='user-input' >
       <div className='input-group'>
           
-          <CustomUserInput labelText="Initial Investment" />
-          <CustomUserInput labelText="Annual Investment" />
+          <CustomUserInput labelText="Initial Investment" labelCode='initialInvestment' onUserInput={handleUserInput} />
+          <CustomUserInput labelText="Annual Investment" labelCode='annualInvestment' onUserInput={handleUserInput} />
       </div>
               <div className='input-group'>
-              <CustomUserInput labelText="Expected return" />
-          <CustomUserInput labelText="Duration" />
+              <CustomUserInput labelText="Expected return" labelCode='expectedReturn' onUserInput={handleUserInput} />
+          <CustomUserInput labelText="Duration" labelCode='duration' onUserInput={handleUserInput} />
               </div>
           </div>
     <table id='result'>

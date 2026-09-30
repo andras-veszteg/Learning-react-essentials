@@ -1,8 +1,5 @@
-export  default function ({labelText, data}){
+export  default function ({labelText, labelCode, onUserInput}){
     return(
-        <>
-        <label>{labelText}</label>
-        <input defaultValue={} />
-            </>
+        <label>{labelText}<input onChange={(e)=>onUserInput(labelCode, e.target.value)}  /> </label>
     )
 }
