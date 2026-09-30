@@ -1,5 +1,5 @@
 import logoImg from './assets/investment-calculator-logo.png';
-import { formatter } from './util/investment.js'
+import {calculateInvestmentResults, formatter,} from './util/investment.js'
 import CustomUserInput from "./components/CustomUserInput.jsx";
 import { useState } from 'react';
 
@@ -15,7 +15,10 @@ function App() {
                 [inputName]: inputValue
             }
             
-        })
+        });
+        if(data.initialInvestment>=0 && data.annualInvestment>=0 && data.duration>=1 && data.expectedReturn>=0)
+            setDataTable(calculateInvestmentResults({}));
+       
     }
     
   return (
@@ -47,11 +50,7 @@ function App() {
         </thead>
         <tbody>
         <tr>
-            <td>1</td>
-            <td>{formatter.format(10850)}</td>
-            <td>{formatter.format(550)}</td>
-            <td>{formatter.format(550)}</td>
-            <td>{formatter.format(10300)}</td>
+            {dataTable}
         </tr>
         </tbody>
     </table>
